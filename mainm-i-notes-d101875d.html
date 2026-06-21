@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 游戏标签与社区索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #faf9f6;
+            color: #1e1e1e;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 / hero 区域 */
+        .hero {
+            background: #121212;
+            padding: 5.5rem 1.5rem 4rem;
+            text-align: center;
+            color: #e3e0db;
+            border-bottom: 4px solid #c9a96e;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            color: #f0ede6;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            max-width: 560px;
+            margin: 0 auto;
+            color: #b7b3ab;
+            font-weight: 350;
+            line-height: 1.6;
+        }
+
+        .hero .meta-line {
+            margin-top: 1.8rem;
+            font-size: 0.85rem;
+            color: #8f8a80;
+            border-top: 1px solid #2a2a2a;
+            display: inline-block;
+            padding-top: 1rem;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 760px;
+            margin: 3rem auto 4rem;
+            padding: 0 1.8rem;
+        }
+
+        .article-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .article-intro {
+            font-size: 1.1rem;
+            color: #4a4a48;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2ddd6;
+        }
+
+        .article-intro strong {
+            font-weight: 500;
+            color: #1e1e1e;
+        }
+
+        p {
+            margin-bottom: 1.8rem;
+            font-size: 1rem;
+            color: #2c2c2a;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #b4833a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            font-weight: 450;
+        }
+
+        a:hover {
+            color: #8f6629;
+            border-bottom-color: #b4833a;
+        }
+
+        /* 引用提示块 */
+        .callout {
+            background: #f0ebe0;
+            border-left: 4px solid #c9a96e;
+            padding: 1.2rem 1.6rem;
+            margin: 2.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .callout p {
+            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+            color: #2f2e2a;
+        }
+
+        .callout .source {
+            margin-top: 0.6rem;
+            font-size: 0.8rem;
+            color: #6d675e;
+        }
+
+        .faq-mini {
+            margin: 3rem 0 1.5rem;
+            padding: 0.4rem 0;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #2c2b27;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px solid #e2ddd6;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            cursor: pointer;
+            font-weight: 450;
+            color: #3d3b36;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸ ";
+            color: #b4833a;
+        }
+
+        .faq-mini details[open] summary::before {
+            content: "▾ ";
+        }
+
+        .faq-mini .answer {
+            padding: 0.4rem 0 0.4rem 1.2rem;
+            font-size: 0.92rem;
+            color: #4a4944;
+        }
+
+        .visit-sentence {
+            font-size: 1.05rem;
+            margin: 2.8rem 0 1rem;
+            padding: 1.2rem 0 0.5rem;
+            border-top: 1px solid #cfc9c0;
+            color: #2b2a27;
+        }
+
+        .visit-sentence a {
+            font-weight: 500;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero {
+                padding: 3rem 1.2rem 2.8rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .hero .sub {
+                font-size: 0.9rem;
+            }
+
+            .article-title {
+                font-size: 1.45rem;
+            }
+
+            .content {
+                padding: 0 1.2rem;
+                margin: 2rem auto 3rem;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                padding: 6.5rem 2rem 4.8rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        /* footer 简约 */
+        .page-footer {
+            max-width: 760px;
+            margin: 0 auto 3rem;
+            padding: 0 1.8rem;
+            font-size: 0.8rem;
+            color: #8b8479;
+            border-top: 1px solid #e6e0d7;
+            padding-top: 1.5rem;
+            text-align: left;
+        }
+
+        .page-footer span {
+            display: inline-block;
+            margin-right: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <h1>爱游戏</h1>
+    <div class="sub">
+        一个围绕游戏标签与社区索引的轻量信息页 —— 帮你更快判断这个站点是否与你的需求有关。
+    </div>
+    <div class="meta-line">更新 · 2025 · 方向简述</div>
+</header>
+
+<main class="content">
+
+    <!-- 文章标题 + 导语 -->
+    <h2 class="article-title">这个页面在说明什么</h2>
+    <div class="article-intro">
+        <strong>快速识别站点用途</strong> · 多数人打开一个陌生链接，首先想确认的是“这地方是干什么的”。<br>
+        这篇短文梳理了该站的主要脉络，以及你可以从中获取哪类信息。
+    </div>
+
+    <p>
+        互联网上关于游戏的站点很多，有的侧重资讯，有的偏向资源整理，也有的更接近个人笔记或兴趣聚合。
+        当你看到 <a href="https://mainm-i-game.com.cn">爱游戏</a> 这个名字时，可能会觉得它指向一个宽泛的游戏门户。
+        实际上它更接近一个带有标签索引和社区讨论性质的轻量空间，内容围绕特定游戏类型、玩法体验以及玩家之间的交流展开。
+    </p>
+
+    <p>
+        站点不追求大而全，也没有堆积复杂的排行榜或实时数据。它的内容组织方式更倾向于把同类信息归拢到一起，
+        然后用标签或者简短描述让浏览者快速理解某个板块在讲什么。如果你习惯先看目录再深入阅读，
+        这种结构会让你比较舒服。导航栏的命名也比较直白，基本能猜到点进去会看到什么。
+    </p>
+
+    <!-- 引用提示块 -->
+    <div class="callout">
+        <p>“一个好的游戏索引应该让人在三十秒内判断出自己是否找对了地方。”</p>
+        <div class="source">—— 来自某位站点使用者的反馈，2024</div>
+    </div>
+
+    <p>
+        从目前已经公开的板块来看，<a href="https://mainm-i-game.com.cn">爱游戏</a> 主要覆盖了以下几类内容：
+        特定品类的推荐与讨论、游戏机制解析、玩家自发的经验分享，以及一些与游戏文化相关的随笔。
+        没有广告弹窗，也没有强制登录的墙，大部分内容可以直接浏览。如果你想进一步互动，
+        可能需要注册一个账号，但阅读层面的门槛很低。
+    </p>
+
+    <p>
+        我注意到它的更新频率不算特别密集，但每篇内容的篇幅普遍比较完整。
+        有些文章会配上截图或简单的示意图，帮助理解文字描述的场景。
+        整体感受上，这是一个由少数爱好者维护的、有一定个人风格的小站，而不是那种机器采集的资讯农场。
+    </p>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h3>常见疑问摘要</h3>
+        <details>
+            <summary>这个网站主要适合哪些人？</summary>
+            <div class="answer">对特定游戏类型感兴趣、愿意阅读较长分析或体验分享的玩家，以及想从社区讨论中获取参考的人。</div>
+        </details>
+        <details>
+            <summary>内容偏重什么平台或品类？</summary>
+            <div class="answer">目前覆盖了 PC 与部分主机游戏，品类上偏向角色扮演、策略和独立游戏，偶尔有怀旧题材。</div>
+        </details>
+        <details>
+            <summary>是否需要付费？</summary>
+            <div class="answer">所有可见的文章和索引均免费阅读。未来是否会增加付费内容，目前没有明确说明。</div>
+        </details>
+    </div>
+
+    <!-- 访问句（自然嵌入链接） -->
+    <div class="visit-sentence">
+        如果你想亲自确认这个站点的调性与内容质量，可以花十分钟浏览一下 <a href="https://mainm-i-game.com.cn">爱游戏</a> 的首页和几个主要板块。
+        它的内容量目前还不算庞大，但胜在分类清晰，语言也比较平实，适合当作一个安静的参考角落。
+    </div>
+
+</main>
+
+<footer class="page-footer">
+    <span>爱游戏 · 简介页</span>
+    <span>—</span>
+    <span>内容仅作方向性概述</span>
+</footer>
+
+</body>
+</html>
