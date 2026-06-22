@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排列五 · 数据概览与使用说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f3ee;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #2d2a26;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .page-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fcf9f6;
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.03);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.2rem;
+            color: #1f1b17;
+            border-left: 4px solid #b7a48e;
+            padding-left: 1rem;
+        }
+
+        .subhead {
+            font-size: 0.95rem;
+            color: #8a7b6b;
+            margin-top: -0.2rem;
+            margin-bottom: 2rem;
+            padding-left: 1.2rem;
+            border-bottom: 1px solid #e8dfd7;
+            padding-bottom: 0.8rem;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.2rem;
+            background: #f2ece3;
+            padding: 1.8rem 2rem;
+            border-radius: 14px;
+            border-left: 6px solid #bfad99;
+            color: #2e2720;
+        }
+
+        .hero-text strong {
+            font-weight: 600;
+            color: #3f3329;
+        }
+
+        .highlight-box {
+            background: #f9f3eb;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #e5dbd0;
+        }
+
+        .highlight-box h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 0.8rem;
+            color: #4a3d32;
+            letter-spacing: 0.03em;
+            border-bottom: 1px dashed #d9cdc0;
+            padding-bottom: 0.4rem;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-box li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-box li::before {
+            content: "·";
+            position: absolute;
+            left: 0.35rem;
+            color: #b09b86;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .scenario-block {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        .scenario-item {
+            flex: 1 1 200px;
+            background: #f6efe7;
+            padding: 1.3rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e3d7cb;
+        }
+
+        .scenario-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #4e3f33;
+        }
+
+        .scenario-item p {
+            font-size: 0.9rem;
+            color: #5f5244;
+        }
+
+        .tip-card {
+            background: #ede6db;
+            border-radius: 14px;
+            padding: 1.2rem 1.8rem;
+            margin: 2rem 0 1.5rem;
+            border: 1px solid #d9ccbe;
+            font-size: 0.95rem;
+            color: #3d342e;
+        }
+
+        .tip-card strong {
+            color: #4f3f32;
+        }
+
+        .faq-summary {
+            margin-top: 2.5rem;
+            border-top: 1px solid #e0d4c8;
+            padding-top: 1.5rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.6rem;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            transition: background 0.15s;
+        }
+
+        .faq-summary details[open] {
+            background: #f3ebe1;
+        }
+
+        .faq-summary summary {
+            cursor: pointer;
+            font-weight: 500;
+            color: #3d332b;
+            font-size: 0.98rem;
+            padding: 0.3rem 0;
+        }
+
+        .faq-summary summary::marker {
+            color: #b29c86;
+        }
+
+        .faq-summary p {
+            margin-top: 0.4rem;
+            padding-left: 0.6rem;
+            color: #544a40;
+            font-size: 0.92rem;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            font-size: 0.85rem;
+            color: #97897c;
+            text-align: center;
+            border-top: 1px solid #e8dfd5;
+            padding-top: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        a {
+            color: #5d4f40;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cbb9a8;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #2f251c;
+            text-decoration-color: #8f7b67;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 0.8rem 0.6rem;
+            }
+            .page-wrap {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.8rem;
+                padding-left: 0.7rem;
+            }
+            .subhead {
+                padding-left: 0.8rem;
+            }
+            .hero-text {
+                padding: 1.2rem 1.2rem;
+                font-size: 0.95rem;
+            }
+            .highlight-box {
+                padding: 1rem 1.2rem;
+            }
+            .scenario-item {
+                flex: 1 1 100%;
+            }
+            .tip-card {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <h1>排列五</h1>
+    <div class="subhead">一个倾向于稳定的信息页面 · 产品说明</div>
+
+    <div class="hero-text">
+        <strong>排列五</strong>并不是一个突然出现的名字，它像一本反复翻阅后折角的旧册子——页面本身不承诺奇迹，但保持入口的存在本身就是一种价值。这里没有闪烁的弹窗，也没有倒计时的紧迫感。你看到的，就是一个整理过的、可长期依赖的页面。
+    </div>
+
+    <div class="highlight-box">
+        <h2>几个实际的特点</h2>
+        <ul>
+            <li>页面结构偏于静态，加载速度对多数网络环境友好；</li>
+            <li>信息组织以可读性为先，没有过多冗余装饰；</li>
+            <li>日常访问时不会频繁变更布局，适合习惯稳定界面的使用者；</li>
+            <li>没有强制注册或关注步骤，页面本身即内容主体。</li>
+        </ul>
+    </div>
+
+    <div class="scenario-block">
+        <div class="scenario-item">
+            <h3>日常浏览</h3>
+            <p>如果你只是需要一个指向清晰、没有干扰的页面，<a href="https://site-pailiewu.com">排列五</a>的呈现方式比较直接，打开后就能看到主要内容区域，不需要层层跳转。</p>
+        </div>
+        <div class="scenario-item">
+            <h3>信息参考</h3>
+            <p>页面以文字信息为主，适合在需要快速浏览或核对内容时使用。排版留白比较充分，注视疲劳感相对低一些。</p>
+        </div>
+        <div class="scenario-item">
+            <h3>功能入口</h3>
+            <p>对于希望保持一个固定访问位置的人来说，这个页面可以作为日常使用的起点。你可以把它加入书签，随时回来。</p>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <strong>一点使用建议：</strong> 把这个页面当作一张安静的工作台——它不会主动推送通知，也不会在后台频繁刷新。你可以在需要的时候打开它，在不需要的时候关掉它。它没有那么强的存在感，但也不会在你需要时消失。
+    </div>
+
+    <div class="faq-summary">
+        <details>
+            <summary>这个页面需要注册或登录吗？</summary>
+            <p>不需要。页面直接对外开放，无需任何身份验证即可浏览全部内容。没有会员墙或试用期限制。</p>
+        </details>
+        <details>
+            <summary>内容多久更新一次？</summary>
+            <p>更新节奏以实用为原则，不刻意追求高频。页面的核心结构保持稳定，局部信息会做必要调整。你可以根据自己的节奏来访问，不用追赶刷新周期。</p>
+        </details>
+        <details>
+            <summary>移动端访问体验如何？</summary>
+            <p>已对常用屏幕尺寸做了适配，字体和间距在手机、平板及桌面端都经过调整。在小屏幕下依然保持可读性，不需要横向缩放或频繁放大。</p>
+        </details>
+        <details>
+            <summary>页面是否安全？</summary>
+            <p>页面使用标准 HTTPS 协议，不包含第三方跟踪脚本或恶意跳转。你可以把<a href="https://site-pailiewu.com">排列五</a>当作一个普通的、值得信赖的信息页面来使用。当然，任何网络环境下都建议保持基本的安全意识。</p>
+        </details>
+    </div>
+
+    <div class="footer-note">
+        一个可以安静放置的页面 · 不需要时刻惦记，也不会突然消失
+    </div>
+</div>
+</body>
+</html>
