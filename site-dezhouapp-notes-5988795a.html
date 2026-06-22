@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>德州扑克APP · 资料索引与信息整理</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f7fa;
+            color: #1e2a30;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
+        }
+
+        /* hero */
+        .hero {
+            background: linear-gradient(145deg, #d6eae8 0%, #b3d4cf 100%);
+            border-radius: 28px;
+            padding: 2.5rem 1.8rem;
+            margin-bottom: 2.2rem;
+            box-shadow: 0 6px 18px rgba(52, 101, 99, 0.12);
+        }
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            color: #0f3433;
+            margin-bottom: 0.7rem;
+        }
+        .hero p {
+            font-size: 1rem;
+            color: #1f4140;
+            max-width: 600px;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #ffffffb3;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #0b5150;
+            margin-top: 0.6rem;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 网格卡片 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+        @media (min-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 40, 40, 0.04);
+            border: 1px solid #d8e7e5;
+            transition: box-shadow 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(52, 101, 99, 0.08);
+        }
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #124545;
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h3 span {
+            background: #cfe3e0;
+            border-radius: 40px;
+            padding: 0 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #06504e;
+        }
+        .card p {
+            font-size: 0.92rem;
+            color: #2c4341;
+        }
+        .card .meta {
+            font-size: 0.8rem;
+            color: #587b78;
+            margin-top: 0.6rem;
+            border-top: 1px dashed #d0e2df;
+            padding-top: 0.5rem;
+        }
+
+        /* 说明区 (单列宽版) */
+        .essay {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.6rem;
+            margin: 1.8rem 0;
+            border-left: 6px solid #5fa19b;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .essay h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0b3f3d;
+            margin-bottom: 0.8rem;
+        }
+        .essay p {
+            margin-bottom: 0.9rem;
+            font-size: 0.96rem;
+            color: #253b38;
+        }
+        .essay .highlight {
+            background: #e4f0ee;
+            padding: 0.1rem 0.4rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #04433f;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            background: #ddecea;
+            border-radius: 24px;
+            padding: 1.8rem 1.5rem;
+            margin: 2rem 0;
+        }
+        .faq-summary h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0c4441;
+            margin-bottom: 1rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 600;
+            color: #1f4c49;
+            margin-bottom: 0.15rem;
+        }
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #2d5652;
+            padding-left: 0.3rem;
+        }
+        .faq-item .divider {
+            height: 1px;
+            background: #bcd5d1;
+            margin: 0.8rem 0;
+            opacity: 0.5;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 2.2rem 0 1.2rem;
+            border-top: 1px solid #cbdcd9;
+            margin-top: 1.2rem;
+        }
+        .footer-links p {
+            font-size: 0.9rem;
+            color: #3a5e5b;
+            margin-bottom: 0.4rem;
+        }
+        .footer-links a {
+            color: #116460;
+            text-decoration: none;
+            border-bottom: 1px dotted #6fa09b;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #0b4d49;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #698c88;
+            margin-top: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 380px) {
+            .hero {
+                padding: 1.8rem 1.2rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+            .essay {
+                padding: 1.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>牌桌之外 · 信息整理</h1>
+        <p>关于德州扑克APP，我们尝试以资料归档的方式梳理其功能脉络、场景逻辑与常见疑问。一份克制的索引，而非夸大其词。</p>
+        <div class="tagline">内容整理 · 持续迭代</div>
+    </div>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="grid">
+        <div class="card">
+            <h3>场景整理 <span>01</span></h3>
+            <p>从新手练习到朋友对战，不同节奏的牌局模式被归类为多个资料页，方便按需查看。</p>
+            <div class="meta">收录 6 个常见模式</div>
+        </div>
+        <div class="card">
+            <h3>规则索引 <span>02</span></h3>
+            <p>翻牌前、翻牌、转牌、河牌——每个阶段的基础说明与常见术语均以简明卡片呈现。</p>
+            <div class="meta">涵盖基础 & 进阶</div>
+        </div>
+        <div class="card">
+            <h3>策略笔记 <span>03</span></h3>
+            <p>位置、底池赔率、读牌思路…… 不涉及必胜套路，只记录可验证的思考框架。</p>
+            <div class="meta">参考来源：公开策略讨论</div>
+        </div>
+        <div class="card">
+            <h3>界面导航 <span>04</span></h3>
+            <p>对德州扑克APP内常用交互模块（牌桌、设置、统计）进行截图式描述，降低摸索成本。</p>
+            <div class="meta">适用于多数版本</div>
+        </div>
+    </div>
+
+    <!-- 说明区：从资料整理和信息索引的角度展开 -->
+    <div class="essay">
+        <h2>从资料整理的角度看一款APP</h2>
+        <p>我们之所以整理这些内容，是因为在接触 <a href="https://site-dezhouapp.com" style="color:#116460; text-decoration:none; border-bottom:1px dotted #6fa09b; font-weight:500;">德州扑克APP</a> 的过程中，发现信息分散在论坛、视频和快捷指南里。与其每次都重新搜索，不如建立一个轻量的索引页面。</p>
+        <p>这里没有“速成高手”的承诺，也没有诱导分享的噱头。每条记录都经过至少两次交叉核对，但依然可能存在版本差异。<span class="highlight">我们的目标很简单：让想了解的人，能更快找到需要的段落。</span></p>
+        <p>如果你也在使用这款应用，并且发现某个功能或规则描述与你的体验不同，欢迎通过页面底部的联系方式反馈。索引的价值在于持续修订。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="q">Q：这款APP是否适合零基础玩家？</div>
+            <div class="a">A：界面提供了新手引导和低额桌练习区，可以先从免费筹码模式熟悉流程。我们也在规则索引部分整理了基础术语。</div>
+        </div>
+        <div class="divider"></div>
+        <div class="faq-item">
+            <div class="q">Q：资料中的截图来自哪个版本？</div>
+            <div class="a">A：主要参照2024年末至2025年初的通用界面。不同更新周期内布局可能微调，但核心逻辑一致。</div>
+        </div>
+        <div class="divider"></div>
+        <div class="faq-item">
+            <div class="q">Q：策略笔记是否保证有效？</div>
+            <div class="a">A：策略笔记仅为通用框架整理，实际胜率受对手、心态、随机因素影响，请理性参考。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>本页为独立资料整理，内容基于 <a href="https://site-dezhouapp.com">德州扑克APP</a> 公开信息及玩家社区讨论。</p>
+        <p class="footer-note">索引不断完善 · 最近更新：2025 · 无推广意图</p>
+    </div>
+</div>
+</body>
+</html>
